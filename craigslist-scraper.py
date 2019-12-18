@@ -19,15 +19,35 @@ for result in cl_h.get_results(sort_by='newest', geotagged=True):
 }
 '''
 import json
+import datetime
 from craigslist import CraigslistJobs
-cl_e = CraigslistJobs(site='newyork', category='fbh', 
+cl_e = CraigslistJobs(site='newyork',  
 						filters={'search_distance': 5, 'zip_code': 11423})
-for result in cl_e.get_results(sort_by='newest', geotagged='true', limit=	500):
+print(datetime.datetime.now())
+for result in cl_e.get_results(sort_by='newest', limit=2000):
 	#filter out non-dishwashers
-	#thisOne = json.loads(result)
-	if "dishwasher" or "dish" in result['name']:
-		print(result['name']+'\n')
-		print('url: ' + result['url'] + '\n')
-		print('where: ')
-		print(result['where'])
-		print('\n')
+	#thisOne = json.loads(result) 
+    if "dishwasher" in result['name']:
+        print(result['name']+'\n')
+        print('url: ' + result['url'] + '\n')
+        print('where: ')
+        print(result['where'])
+        print('\n') 
+    elif "delivery" in result['name']:
+        print(result['name']+'\n')
+        print('url: ' + result['url'] + '\n')
+        print('where: ')
+        print(result['where'])
+        print('\n')
+    elif "DISHWASHER" in result['name']:
+        print(result['name']+'\n')
+        print('url: ' + result['url'] + '\n')
+        print('where: ')
+        print(result['where'])
+        print('\n')
+    elif "courier" in result['name']:
+        print(result['name']+'\n')
+        print('url: ' + result['url'] + '\n')
+        print('where: ')
+        print(result['where'])
+        print('\n')
