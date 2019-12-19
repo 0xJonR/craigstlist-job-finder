@@ -22,7 +22,6 @@ import json
 import datetime
 from craigslist import CraigslistJobs
 import sys 
-#TODO add cli arguments
 cl_e = CraigslistJobs(site='newyork',  
 						filters={'search_distance': 5, 'zip_code': 11423})
 vars = set()
@@ -40,7 +39,3 @@ for result in cl_e.get_results(sort_by='newest', limit=2000):
             print(result['url'])
             print(result['datetime'])
             print('\n')
-
-	#filter out non-dishwashers
-	#thisOne = json.loads(result) 
-    
