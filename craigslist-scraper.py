@@ -21,11 +21,18 @@ for result in cl_h.get_results(sort_by='newest', geotagged=True):
 import json
 import datetime
 from craigslist import CraigslistJobs
-#TODO add cli arguments s
+import sys 
+#TODO add cli arguments
 cl_e = CraigslistJobs(site='newyork',  
 						filters={'search_distance': 5, 'zip_code': 11423})
+vars = set()
+if len(sys.argv) > 1:
+    for x in range(1, len(sys.argv)-1):
+        vars.add(str.upper(sys.argv[x]))
+else:
+    vars = {"DISHWASHER", "TUTOR", "DRIVER", "LIFEGUARD"} #default values 
+
 print(datetime.datetime.now())
-vars = {"DISHWASHER", "DELIVERY", "COURIER", "TUTOR", "DRIVER", "LIFEGUARD"}
 for result in cl_e.get_results(sort_by='newest', limit=2000):
     for subst in vars:
         if subst in str.upper(result['name']):
