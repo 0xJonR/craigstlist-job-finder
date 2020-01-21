@@ -1,4 +1,5 @@
 '''
+ <way id="12281519" version="4" timestamp="2014-05-05T12:07:36Z" changeset="22145464" uid="599436" user="zeromap">
 from craigslist import CraigslistHousing
 cl_h = CraigslistHousing(site='sfbay', area='sfc', category='roo',
                          filters={'max_price': 1200, 'private_room': True})
@@ -25,8 +26,8 @@ import sys
 cl_e = CraigslistJobs(site='newyork',  
 						filters={'search_distance': 5, 'zip_code': 11423})
 vars = set()
-if len(sys.argv) > 1:
-    for x in range(1, len(sys.argv)-1):
+if len(sys.argv) >= 2:
+    for x in range(1, len(sys.argv)):
         vars.add(str.upper(sys.argv[x]))
 else:
     vars = {"DISHWASHER", "TUTOR", "DRIVER", "LIFEGUARD"} #default values 
